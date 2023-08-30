@@ -15,6 +15,7 @@
 - [📖 OOP School Library ](#-oop-school-library-) - [Learning objectives](#learning-objectives)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -54,6 +55,16 @@
 
 ---
 
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+- **[Setup environment according to Microverse guidelines]**
+- **[Follow Ruby best practices]**
+- **[Implementation of OOP concepts]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -72,9 +83,25 @@ Clone this repository to your desired folder:
 
 Example commands:
 
+- With SSH:
+
 ```bash
   cd my-folder
   git clone git@github.com:mwismann/oop_school_library.git
+```
+
+- With HTTPS:
+
+```bash
+  cd my-folder
+  git clone hhttps://github.com/mwismann/oop_school_library.git
+```
+
+- With GitHub CLI:
+
+```bash
+  cd my-folder
+  gh repo clone mwismann/OOP_school_library
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
