@@ -25,5 +25,5 @@ p classroom_b.students.map(&:name)
 book = Book.new('The Lord of the Rings', 'J. R. R. Tolkien')
 rental = Rental.new(Time.now, book, person)
 p rental.book.title
-p book.rentals.map(&:date)
-p map(person.rentals { |r| r.book.title })
+book.add_rental(rental)
+p book.rentals.map(&:person).map(&:name)
