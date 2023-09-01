@@ -20,10 +20,10 @@ student = Student.new(22, classroom_a, 'maximilianus')
 p classroom_a.students
 p student.classroom.label
 p student.add_classroom(classroom_b)
-p classroom_b.students.map { |s| s.name }
+p classroom_b.students.map(&:name)
 
 book = Book.new('The Lord of the Rings', 'J. R. R. Tolkien')
 rental = Rental.new(Time.now, book, person)
 p rental.book.title
-p book.rentals.map { |r| r.date }
-p person.rentals.map { |r| r.book.title }
+p book.rentals.map(&:date)
+p map(person.rentals { |r| r.book.title })
