@@ -1,7 +1,7 @@
 require './lib/menu_controller'
 require './lib/people_controller'
-require './lib/books_controller'
-require './lib/rentals_controller'
+require './lib/book_controller'
+require './lib/rental_controller'
 
 class App
   def initialize

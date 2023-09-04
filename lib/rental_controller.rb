@@ -1,7 +1,7 @@
 require_relative 'rental'
-require_relative 'list_controller'
+require_relative 'list_manager'
 
-class Rentals < ListController
+class Rentals < ListManager
   attr_accessor :rentals
   
   def initialize
