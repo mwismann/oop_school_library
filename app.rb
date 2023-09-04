@@ -5,38 +5,28 @@ require './lib/rental_controller'
 
 class App
   def initialize
-    @people = People.new
-    @books = Books.new
-    @rentals = Rentals.new
+    @people = PeopleController.new
+    @books = BookController.new
+    @rentals = RentalController.new
     @menu = Menu.new(self)
   end
 
-  # Menu methods
   def run
     @menu.display_menu
   end
 
-  # Person methods
+  # People management methods
   def list_all_people
     @people.list_all_people
     run
   end
 
-  def create_student
-    @people.create_student
-    run
-  end
-
-  def create_teacher
-    @people.create_teacher
-    run
-  end
-
   def create_person
     @people.create_person
+    run
   end
 
-  # Book methods
+  # Books management methods
   def list_all_books
     @books.list_all_books
     run
@@ -47,9 +37,9 @@ class App
     run
   end
 
-  # Rental methods
+  # Rentals management methods
   def create_rental
-    @rentals.create_rental
+    @rentals.create_rental(@people, @books)
     run
   end
 

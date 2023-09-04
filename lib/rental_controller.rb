@@ -1,40 +1,47 @@
 require_relative 'rental'
-require_relative 'list_manager'
 
-class Rentals < ListManager
+class RentalController
   attr_accessor :rentals
-  
+
   def initialize
-    super
     @rentals = []
   end
 
-  def create_rental
-    puts 'Select a book from the following list by number: '
+  def create_rental(people, books)
+    date, person_i, book_i = rental_data(people, books)
+    @rentals << Rental.new(date, people.people[person_i], books.books[book_i])
+    puts 'Rental created successfully'
+  end
 
-    check_empty_list(@books, 'books')
-    @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
-    end
-    book_index = gets.chomp.to_i
+  def rental_data(people, books)
+    puts 'Selec a book from the following list by number: '
+    books.list_all_books
+    book_i = gets.chomp.to_i - 1
 
     puts 'Select a person from the following list by number (Not ID): '
-
-    check_empty_list(@people, 'people')
-    @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    end
-    person_index = gets.chomp.to_i
+    people.list_all_people
+    person_i = gets.chomp.to_i - 1
 
     print 'Date: '
     date = gets.chomp
 
-    @rentals << Rental.new(date, @people[person_index], @books[book_index])
-    puts 'Rental created successfully'
-
+    [date, person_i, book_i]
   end
 
   def list_rentals_by_person_id
+    id, rentals = rentals_by_id
+
+    if rentals.empty?
+      puts 'The person has no rentals'
+    else
+      puts "Rentals for person with ID #{id}:"
+      rentals.each_with_index do |rental, index|
+        puts "#{index + 1}) Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
+      end
+    end
+  end
+
+  def rentals_by_id
     print 'ID of the person: '
     id = gets.chomp.to_i
 
@@ -42,13 +49,6 @@ class Rentals < ListManager
       rental.person.id.to_i == id
     end
 
-    if rentals.empty?
-      puts 'This person has no rentals'
-    else
-      puts "Rentals for person with ID #{id}:"
-      rentals.each do |rental|
-        puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
-      end
-    end
+    [id, rentals]
   end
 end
