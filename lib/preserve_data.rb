@@ -1,44 +1,36 @@
 require 'json'
+require_relative 'person'
+require_relative 'student'
+require_relative 'teacher'
 
 class PreserveData
 
-  # preserve data of the data array
-  def preserve_people(data)
-    arr = []
-    obj = {}
-    data.each do |person|
-      obj = {
-        'id'=> person.id,
-        'name'=> person.name,
-        'age'=> person.age,
-      }
+  def initialize(people, books, rentals)
+    @people = people
+    @books = books
+    @rentals = rentals
+  end
 
-      if person.is_a?(Student)
-        obj['classroom'] = person.classroom
+  def save_data
+    people_data, books_data = serialize_data
+
+    File.write('./lib/data/people.json', JSON.generate(people_data))
+    File.write('./lib/data/books.json', JSON.generate(books_data))
+  end
+
+  def serialize_data
+    people_data = @people.people.map do |person|
+      if person.instance_of?(Student)
+        { id: person.id, name: person.name, age: person.age, classroom: person.classroom, person_type: person.class }
       else
-        obj['specialization'] = person.specialization
+        { id: person.id, name: person.name, age: person.age, specialization: person.specialization, person_type: person.class  }
       end
-      arr << obj
     end
-    File.open('./lib/people.json', 'w') do |file|
-      file.write(arr.to_json)
-    end
-  end
 
-  def preserve_books(data)
-    arr = []
-    obj = {}
-    data.each do |book|
-      obj = {
-        'title'=> book.title,
-        'author'=> book.author,
-      }
-      arr << obj
+    books_data = @books.books.map do |book|
+      { title: book.title, author: book.author }
     end
-    File.open('./lib/books.json', 'w') do |file|
-      file.write(arr.to_json)
-    end
-  end
 
-
+    [people_data, books_data]
+  end 
 end

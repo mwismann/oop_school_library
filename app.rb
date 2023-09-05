@@ -10,7 +10,7 @@ class App
     @people = PeopleController.new
     @books = BookController.new
     @rentals = RentalController.new
-    @preserve = PreserveData.new
+    @preserve = PreserveData.new(@people, @books, @rentals)
     @menu = Menu.new(self)
   end
 
@@ -40,12 +40,12 @@ class App
     run
   end
 
-  def preserve_people
-    @preserve.preserve_people(@people.people)
+  def save_data
+    @preserve.save_data
   end
 
   def exit
-    preserve_people
+    save_data
     puts 'Bye!'
   end
 
