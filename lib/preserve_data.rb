@@ -12,10 +12,11 @@ class PreserveData
   end
 
   def save_data
-    people_data, books_data = serialize_data
+    people_data, books_data, rentals_data = serialize_data
 
     File.write('./lib/data/people.json', JSON.generate(people_data))
     File.write('./lib/data/books.json', JSON.generate(books_data))
+    File.write('./lib/data/rentals.json', JSON.generate(rentals_data))
   end
 
   def serialize_data
@@ -31,6 +32,10 @@ class PreserveData
       { title: book.title, author: book.author }
     end
 
-    [people_data, books_data]
+    rentals_data = @rentals.rentals.map do |rental|
+      { person_id: rental.person.id, book_title: rental.book.title, book_author: rental.book.author, date: rental.date }
+    end
+
+    [people_data, books_data, rentals_data]
   end 
 end
