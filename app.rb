@@ -2,12 +2,15 @@ require './lib/menu_controller'
 require './lib/people_controller'
 require './lib/book_controller'
 require './lib/rental_controller'
+require './lib/preserve_data'
+require 'json'
 
 class App
   def initialize
     @people = PeopleController.new
     @books = BookController.new
     @rentals = RentalController.new
+    @preserve = PreserveData.new
     @menu = Menu.new(self)
   end
 
@@ -35,6 +38,15 @@ class App
   def create_book
     @books.create_book
     run
+  end
+
+  def preserve_people
+    @preserve.preserve_people(@people.people)
+  end
+
+  def exit
+    preserve_people
+    puts 'Bye!'
   end
 
   # Rentals management methods
