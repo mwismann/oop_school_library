@@ -39,7 +39,8 @@
 - Understand the basics of OOP.
 - Implement classes and objects in Ruby.
 - Implement encapsulation and inheritance with Ruby.
-- Run a program using the command line.
+- Describe the SOLID principles of OOP.
+- Refactor your own Ruby code after gaining new knowledge.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -59,9 +60,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Setup environment according to Microverse guidelines]**
-- **[Follow Ruby best practices]**
-- **[Implementation of OOP concepts]**
+- **[Implementation of OOP Four Principles]**
+- **[Implementation of Decorators]**
+- **[Implementation of SOLID principles]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -118,6 +119,11 @@ Example commands:
 - Twitter: [@mathias_wismann](https://twitter.com/mathias_wismann)
 - LinkedIn: [Mathias Wismann](https://www.linkedin.com/in/mathias-wismann/)
 
+👤 **Reza Merzaie**
+
+- 👤 GitHub: [Gh-Reza](https://github.com/Gh-Reza)
+- 👤 Twitter: [Reza](https://twitter.com/reza-mezaie)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
@@ -126,9 +132,10 @@ Example commands:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Class Decorators.
-- [ ] Associations.
-- [ ] Basic UI.
+- [x] Class Decorators.
+- [x] Associations.
+- [x] Basic UI.
+- [ ] Refactor code.
 - [ ] Tests.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
