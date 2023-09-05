@@ -1,5 +1,5 @@
-require_relative 'book'
-require_relative 'list_manager'
+require './lib/book'
+require './lib/list_manager'
 
 class BookController < ListManager
   attr_accessor :books

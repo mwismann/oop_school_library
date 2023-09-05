@@ -25,6 +25,10 @@ class Person < Nameable
     @rentals << rental
   end
 
+  def preserve_id(id)
+    @id = id
+  end
+
   private
 
   def of_age?
