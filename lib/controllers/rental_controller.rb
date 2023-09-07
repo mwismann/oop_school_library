@@ -1,4 +1,4 @@
-require './lib/rental'
+require_relative '../models/rental'
 
 class RentalController
   attr_accessor :rentals

@@ -1,7 +1,7 @@
 require 'json'
-require_relative 'person'
-require_relative 'student'
-require_relative 'teacher'
+require_relative '../models/person'
+require_relative '../models/student'
+require_relative '../models/teacher'
 
 class DataManager
   def initialize(people, books, rentals)

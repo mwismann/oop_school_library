@@ -1,7 +1,7 @@
-require './lib/person'
-require './lib/student'
-require './lib/teacher'
-require './lib/list_manager'
+require_relative '../models/person'
+require_relative '../models/student'
+require_relative '../models/teacher'
+require_relative '../helpers/list_manager'
 
 class PeopleController < ListManager
   attr_accessor :people
